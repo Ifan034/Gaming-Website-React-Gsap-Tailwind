@@ -20,6 +20,7 @@ const Hero = () => {
   const [loadedVideos, setLoadedVideos] = useState(0);
 
   const totalVideos = 4;
+  // useRef creates a mutable object that persists across re-renders.
   const nextVdRef = useRef(null);
 
   //current video on hero section
@@ -27,8 +28,10 @@ const Hero = () => {
     setLoadedVideos((prev) => prev + 1);
   };
 
+  //  the number of loaded videos is exactly one less than the total number of videos.
   useEffect(() => {
     if (loadedVideos === totalVideos - 1) {
+      // when all videos are loaded, the loading state is set to false.
       setLoading(false);
     }
   }, [loadedVideos]);
@@ -40,9 +43,12 @@ const Hero = () => {
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
 
+  // useGSAP is a custom hook it worked when dependencies changed.
   useGSAP(
     () => {
+      // is hasClicked is true then
       if (hasClicked) {
+        // show the next video:
         gsap.set("#next-video", { visibility: "visible" });
         gsap.to("#next-video", {
           transformOrigin: "center center",
@@ -53,6 +59,7 @@ const Hero = () => {
           ease: "power1.inOut",
           onStart: () => nextVdRef.current.play(),
         });
+        // Animate the #current-video element
         gsap.from("#current-video", {
           transformOrigin: "center center",
           scale: 0,
@@ -76,6 +83,7 @@ const Hero = () => {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       borderRadius: "0% 0% 0% 0%",
       ease: "power1.inOut",
+      // animation to the user's scroll position
       scrollTrigger: {
         trigger: "#video-frame",
         start: "center center",
@@ -88,7 +96,9 @@ const Hero = () => {
   const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
+    // Top-Level Container //
     <div className="relative h-dvh w-screen overflow-x-hidden">
+      {/* Loading Spinner */}
       {loading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
           {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
@@ -99,12 +109,13 @@ const Hero = () => {
           </div>
         </div>
       )}
-
+      {/* polygon video frame // */}
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
       >
         <div>
+          {/* Mini Video with Preview */}
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <VideoPreview>
               <div
@@ -123,7 +134,7 @@ const Hero = () => {
               </div>
             </VideoPreview>
           </div>
-
+          {/* Main Video Elements */}
           <video
             ref={nextVdRef}
             src={getVideoSrc(currentIndex)}
@@ -144,7 +155,7 @@ const Hero = () => {
             onLoadedData={handleVideoLoad}
           />
         </div>
-
+        {/* hero header and button */}
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
           G<b>A</b>MING
         </h1>
