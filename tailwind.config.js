@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        zentry: ['Zentry', 'sans-serif'],
-        general: ['General Sans', 'sans-serif'],
+        'zentry': ['Zentry', 'sans-serif'],
+        'general': ['General Sans', 'sans-serif'],
         'circular-web': ['circular-web', 'sans-serif'],
         'robert-medium': ['robert-medium', 'sans-serif'],
         'robert-regular': ['robert-regular', 'sans-serif'],
