@@ -1,3 +1,4 @@
+
 // Import React hooks and dependencies
 import React, { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti"; // Importing an icon component
@@ -67,7 +68,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
             onMouseMove={handleMouseMove} // Update cursor position on mouse move
             onMouseEnter={handleMouseEnter} // Show hover effect
             onMouseLeave={handleMouseLeave} // Hide hover effect
-            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
+            className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black  px-5 py-2 text-xs uppercase text-white/50"
           >
             {/* Radial gradient hover effect */}
             <div

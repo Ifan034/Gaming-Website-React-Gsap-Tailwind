@@ -81,7 +81,7 @@ const Navbar = () => {
         //----navigation bar fixed to top----//
         <div 
             ref={navContainerRef}
-            className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
+            className="fixed rounded-lg inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6"
         >
             {/*----> shifts the element vertically upward by half its own height.<----*/}
             <header className="absolute top-1/2 w-full -translate-y-1/2">
@@ -95,7 +95,7 @@ const Navbar = () => {
                             id='product-button'
                             title='products'
                             rightIcon={<TiLocationArrow />}
-                            containerClass='bg-blue-50 md:flex hidden items-center justify-center gap-1'
+                            containerClass='bg-blue-300 text-white md:flex hidden items-center justify-center gap-1'
                         />
                     </div>
 
@@ -103,11 +103,12 @@ const Navbar = () => {
                     <div className="flex h-full items-center">
                         {/* map through navItems array and create a link for each item */}
                         <div className="hidden md:block">
-                            {navItems.map((item, index) => (
+                            {navItems.map((item, index) => (    
                                 <a 
-                                    key={index}         
+                                    key={index}    
+                                    //add link to each item     
                                     href={`#${item.toLowerCase()}`}
-                                    className="nav-hover-btn"
+                                    className="nav-hover-btn "
                                 > 
                                     {item}
                                 </a>
@@ -123,7 +124,7 @@ const Navbar = () => {
                             <audio 
                                 ref={audioElementRef}
                                 className="hidden"
-                                src="/audio/loop.mp3"
+                                src="/audio/dramamineFull.mp3"
                                 loop
                             />
                             {/* dynamically creates four <div> elements, representing bars in an audio indicator */}
