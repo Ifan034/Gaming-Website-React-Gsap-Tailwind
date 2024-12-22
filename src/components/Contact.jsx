@@ -10,7 +10,7 @@ const ImageClipBox = ({ src, clipClass }) => (
 const Contact = () => {
   return (
     <div id="contact" className="my-52 min-h-full w-screen  lg:px-72">
-      <div className="relative rounded-lg bg-blue-100 py-24 text-blue-50 sm:overflow-hidden">
+      <div className="relative rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden">
         <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
           <ImageClipBox
             src="/img/contact-1.webp"
@@ -34,7 +34,7 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <p className="mb-10 font-general text-[14px] text-black uppercase">
+          <p className="mb-10 font-general text-[14px] text-white uppercase">
             Join Zentry
           </p>
 
@@ -44,7 +44,7 @@ const Contact = () => {
             
           />
 
-          <Button title="contact us" containerClass="bg-blue-300 text-white mt-10 cursor-pointer" />
+          <Button title="contact us" containerClass="mt-10 cursor-pointer" />
         </div>
       </div>
     </div>
